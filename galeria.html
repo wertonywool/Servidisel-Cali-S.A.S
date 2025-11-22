@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería de trabajos de Servidiesel: Vea nuestros proyectos de reparación de inyección diésel, nuestro taller y equipo profesional.">
+    <meta name="keywords" content="galería diésel, trabajos inyección, taller Servidiesel, fotos reparación, antes y después">
+    <title>Servidiesel - Galería</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="images/Remplazar/logo sin fondo.jpg" alt="Servidiesel Logo" class="header-logo"></a>
+            </div>
+            <div class="main-nav-buttons">
+                <a href="agendar_cita.html" class="btn-nav-cita">Agendar Cita</a>
+                <a href="https://wa.me/573008613375?text=Hola,%20me%20interesa%20el%20servicio%20de%20Servidiesel." target="_blank" class="btn-nav-whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gallery-hero">
+            <div class="container">
+                <h2>Nuestra Galería de Excelencia: Trabajos, Taller y Equipo</h2>
+                <p>Explora la calidad y el detalle que ponemos en cada reparación. Conoce nuestro moderno taller y al equipo de expertos que hace posible la excelencia en Servidiesel.</p>
+            </div>
+        </section>
+
+        <section id="gallery-content">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="trabajos">Trabajos Realizados</button>
+                    <button class="filter-btn" data-filter="taller">Nuestro Taller</button>
+                    <button class="filter-btn" data-filter="personal">Equipo y Personal</button>
+                </div>
+
+                <h2>Trabajos Realizados: La Evidencia de Nuestra Maestría</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/placeholder_work1.jpg" alt="Reparación de inyector diésel de alta presión">
+                        <p>Reparación de inyector diésel de alta presión</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/placeholder_work2.jpg" alt="Mantenimiento preventivo de bomba de inyección">
+                        <p>Mantenimiento preventivo de bomba de inyección</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/placeholder_work3.jpg" alt="Diagnóstico y ajuste de sistema de inyección diésel">
+                        <p>Diagnóstico y ajuste de sistema de inyección diésel</p>
+                    </div>
+                    <!-- Añadir más items de trabajos -->
+                </div>
+
+                <h2>Nuestro Taller: Tecnología y Organización al Servicio de tu Motor</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/placeholder_workshop1.jpg" alt="Vista general de las instalaciones de Servidiesel">
+                        <p>Vista general de las instalaciones de Servidiesel</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/placeholder_workshop2.jpg" alt="Área especializada para pruebas de inyectores">
+                        <p>Área especializada para pruebas de inyectores</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/placeholder_tools.jpg" alt="Herramientas de precisión para inyección diésel">
+                        <p>Herramientas de precisión para inyección diésel</p>
+                    </div>
+                    <!-- Añadir más items del taller -->
+                </div>
+
+                <h2>Equipo y Personal: La Experiencia que Impulsa Servidiesel</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/placeholder_julio.jpg" alt="Julio César Martínez, especialista en inyección diésel">
+                        <p>Julio César Martínez, especialista en inyección diésel</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/placeholder_uniform.jpg" alt="Personal de Servidiesel con indumentaria profesional">
+                        <p>Personal de Servidiesel con indumentaria profesional</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/placeholder_team.jpg" alt="El equipo de Servidiesel listo para atenderte">
+                        <p>El equipo de Servidiesel listo para atenderte</p>
+                    </div>
+                    <!-- Añadir más items de personal -->
+                </div>
+            </div>
+        </section>
+
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="lightbox-caption"></div>
+        </div>
+
+        <section id="cta-gallery">
+            <div class="container">
+                <h2>¿Impresionado con la Calidad de Nuestro Trabajo?</h2>
+                <p>No esperes más para darle a tu motor diésel el cuidado experto que se merece. ¡Agenda tu cita hoy mismo!</p>
+                <a href="agendar_cita.html" class="btn">Agendar Cita Ahora</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Servidiesel. Todos los derechos reservados.</p>
+            <div class="contact-info">
+                <p>Teléfono: +57 300 86013375</p>
+                <p>Email: Servidieselcalisas@gmail.com</p>
+                <p>Dirección: Cra 7 33a-12</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5730086013375" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573008613375?text=Hola%20servidiesel%20cali%20sas%20estoy%20interesado%20en%20usar%20sus%20servicios" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+
+    <script src="js/script.js"></script>
+</body>
+</html>
