@@ -12,8 +12,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery_styles.css">
 </head>
-<body>
+<body class="gallery-page">
     <header>
         <nav>
             <div class="logo">
@@ -39,7 +40,7 @@
 
     <main>
         <section id="gallery-hero">
-            <div class="container">
+            <div class="container animated fade-in">
                 <h2>Nuestra Galería de Excelencia: Trabajos, Taller y Equipo</h2>
                 <p>Explora la calidad y el detalle que ponemos en cada reparación. Conoce nuestro moderno taller y al equipo de expertos que hace posible la excelencia en Servidiesel.</p>
             </div>
@@ -47,62 +48,126 @@
 
         <section id="gallery-content">
             <div class="container">
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="trabajos">Trabajos Realizados</button>
+                <div class="filter-buttons animated fade-in-up">
+                    <button class="filter-btn active" data-filter="trabajos">Trabajos Realizados</button>
                     <button class="filter-btn" data-filter="taller">Nuestro Taller</button>
                     <button class="filter-btn" data-filter="personal">Equipo y Personal</button>
                 </div>
 
-                <h2>Trabajos Realizados: La Evidencia de Nuestra Maestría</h2>
-                <div class="gallery-grid">
+                <div class="gallery-grid animated fade-in-up">
+                    <!-- Trabajos Realizados (9 items) -->
                     <div class="gallery-item" data-category="trabajos">
-                        <img src="images/placeholder_work1.jpg" alt="Reparación de inyector diésel de alta presión">
+                        <img src="images/galeria/trabajos/1.png" alt="Reparación de inyector diésel de alta presión">
                         <p>Reparación de inyector diésel de alta presión</p>
                     </div>
                     <div class="gallery-item" data-category="trabajos">
-                        <img src="images/placeholder_work2.jpg" alt="Mantenimiento preventivo de bomba de inyección">
+                        <img src="images/galeria/trabajos/2.png" alt="Mantenimiento preventivo de bomba de inyección">
                         <p>Mantenimiento preventivo de bomba de inyección</p>
                     </div>
                     <div class="gallery-item" data-category="trabajos">
-                        <img src="images/placeholder_work3.jpg" alt="Diagnóstico y ajuste de sistema de inyección diésel">
+                        <img src="images/galeria/trabajos/3.png" alt="Diagnóstico y ajuste de sistema de inyección diésel">
                         <p>Diagnóstico y ajuste de sistema de inyección diésel</p>
                     </div>
-                    <!-- Añadir más items de trabajos -->
-                </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/4.png" alt="Calibración de sistema de inyección">
+                        <p>Calibración de sistema de inyección</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/5.png" alt="Reemplazo de componentes diésel">
+                        <p>Reemplazo de componentes diésel</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/6.png" alt="Pruebas de rendimiento de motor">
+                        <p>Pruebas de rendimiento de motor</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/7.png" alt="Limpieza de inyectores">
+                        <p>Limpieza de inyectores</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/8.png" alt="Ajuste de válvulas">
+                        <p>Ajuste de válvulas</p>
+                    </div>
+                    <div class="gallery-item" data-category="trabajos">
+                        <img src="images/galeria/trabajos/9.png" alt="Reparación de fugas de combustible">
+                        <p>Reparación de fugas de combustible</p>
+                    </div>
 
-                <h2>Nuestro Taller: Tecnología y Organización al Servicio de tu Motor</h2>
-                <div class="gallery-grid">
+                    <!-- Nuestro Taller (9 items) -->
                     <div class="gallery-item" data-category="taller">
-                        <img src="images/placeholder_workshop1.jpg" alt="Vista general de las instalaciones de Servidiesel">
+                        <img src="images/galeria/taller/1.png" alt="Vista general de las instalaciones de Servidiesel">
                         <p>Vista general de las instalaciones de Servidiesel</p>
                     </div>
                     <div class="gallery-item" data-category="taller">
-                        <img src="images/placeholder_workshop2.jpg" alt="Área especializada para pruebas de inyectores">
+                        <img src="images/galeria/taller/2.png" alt="Área especializada para pruebas de inyectores">
                         <p>Área especializada para pruebas de inyectores</p>
                     </div>
                     <div class="gallery-item" data-category="taller">
-                        <img src="images/placeholder_tools.jpg" alt="Herramientas de precisión para inyección diésel">
+                        <img src="images/galeria/taller/3.png" alt="Herramientas de precisión para inyección diésel">
                         <p>Herramientas de precisión para inyección diésel</p>
                     </div>
-                    <!-- Añadir más items del taller -->
-                </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/4.png" alt="Banco de pruebas de inyección">
+                        <p>Banco de pruebas de inyección</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/5.png" alt="Zona de diagnóstico electrónico">
+                        <p>Zona de diagnóstico electrónico</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/6.png" alt="Estación de trabajo de técnicos">
+                        <p>Estación de trabajo de técnicos</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/7.png" alt="Equipos de calibración">
+                        <p>Equipos de calibración</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/8.png" alt="Área de mantenimiento">
+                        <p>Área de mantenimiento</p>
+                    </div>
+                    <div class="gallery-item" data-category="taller">
+                        <img src="images/galeria/taller/9.png" alt="Recepción y atención al cliente">
+                        <p>Recepción y atención al cliente</p>
+                    </div>
 
-                <h2>Equipo y Personal: La Experiencia que Impulsa Servidiesel</h2>
-                <div class="gallery-grid">
+                    <!-- Equipo y Personal (9 items) -->
                     <div class="gallery-item" data-category="personal">
-                        <img src="images/placeholder_julio.jpg" alt="Julio César Martínez, especialista en inyección diésel">
+                        <img src="images/galeria/personal/1.png" alt="Julio César Martínez, especialista en inyección diésel">
                         <p>Julio César Martínez, especialista en inyección diésel</p>
                     </div>
                     <div class="gallery-item" data-category="personal">
-                        <img src="images/placeholder_uniform.jpg" alt="Personal de Servidiesel con indumentaria profesional">
+                        <img src="images/galeria/personal/2.png" alt="Personal de Servidiesel con indumentaria profesional">
                         <p>Personal de Servidiesel con indumentaria profesional</p>
                     </div>
                     <div class="gallery-item" data-category="personal">
-                        <img src="images/placeholder_team.jpg" alt="El equipo de Servidiesel listo para atenderte">
+                        <img src="images/galeria/personal/3.png" alt="El equipo de Servidiesel listo para atenderte">
                         <p>El equipo de Servidiesel listo para atenderte</p>
                     </div>
-                    <!-- Añadir más items de personal -->
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/4.png" alt="Técnico realizando diagnóstico">
+                        <p>Técnico realizando diagnóstico</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/5.png" alt="Asesorando a un cliente">
+                        <p>Asesorando a un cliente</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/6.png" alt="Equipo en capacitación">
+                        <p>Equipo en capacitación</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/7.png" alt="Trabajo en equipo">
+                        <p>Trabajo en equipo</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/8.png" alt="Especialista en bombas de inyección">
+                        <p>Especialista en bombas de inyección</p>
+                    </div>
+                    <div class="gallery-item" data-category="personal">
+                        <img src="images/galeria/personal/9.png" alt="Líder de equipo Servidiesel">
+                        <p>Líder de equipo Servidiesel</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -114,10 +179,10 @@
         </div>
 
         <section id="cta-gallery">
-            <div class="container">
+            <div class="container animated fade-in">
                 <h2>¿Impresionado con la Calidad de Nuestro Trabajo?</h2>
                 <p>No esperes más para darle a tu motor diésel el cuidado experto que se merece. ¡Agenda tu cita hoy mismo!</p>
-                <a href="agendar_cita.html" class="btn">Agendar Cita Ahora</a>
+                <a href="agendar_cita.html" class="btn animated fade-in-up">Agendar Cita Ahora</a>
             </div>
         </section>
     </main>
