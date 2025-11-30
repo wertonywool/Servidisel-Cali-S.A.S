@@ -1,8 +1,8 @@
 /* General Styles */
 :root {
     --primary-orange: #FF8C00;
-    --dark-gray: #333333;
-    --light-gray: #F0F0F0;
+    --dark-gray: #212529;      /* Gris oscuro de Bootstrap */
+    --light-gray: #FFF7ED;     /* Gris claro de Bootstrap */
     --white: #FFFFFF;
     --black: #000000;
 }
@@ -91,7 +91,7 @@ a {
 header {
     background-color: var(--dark-gray);
     color: var(--white);
-    padding: 15px 0;
+    padding: 0px 0; /* Ajustado para permitir un logo más grande sin cambiar la altura de la barra */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* More pronounced shadow */
     position: sticky;
     top: 0;
@@ -119,7 +119,7 @@ nav {
 }
 
 .header-logo {
-    height: 55px; /* Slightly larger logo */
+    height: 100px; /* Logo más grande */
     width: auto;
     vertical-align: middle;
 }
@@ -164,37 +164,49 @@ nav {
 
 /* Navigation Button Styles */
 .btn-nav-cita {
-    background-color: var(--primary-orange); /* Changed to primary orange */
-    color: var(--white) !important;
-    padding: 12px 20px; /* Larger padding */
-    border-radius: 8px; /* More rounded */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    font-weight: bold; /* Make text bold */
-    box-shadow: 0 4px 8px rgba(255,140,0,0.4); /* Orange shadow */
+    background-color: var(--primary-orange);
+    color: var(--white); /* Removed !important */
+    padding: 10px 18px; /* Slightly smaller padding */
+    border-radius: 5px; /* Less rounded */
+    transition: background-color 0.3s ease; /* Removed box-shadow from transition */
+    font-weight: bold;
+    box-shadow: none; /* Removed box-shadow */
 }
 
 .btn-nav-cita:hover {
-    background-color: #e67e00 !important; /* Darker orange on hover */
-    box-shadow: 0 6px 12px rgba(255,140,0,0.6); /* More pronounced shadow on hover */
+    background-color: #e67e00; /* Darker orange on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow on hover */
 }
 
 .btn-nav-whatsapp {
     background-color: #25d366; /* WhatsApp Green */
     color: var(--white) !important;
-    padding: 12px 20px; /* Larger padding */
-    border-radius: 8px; /* More rounded */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(37,211,102,0.4); /* Green shadow */
+    padding: 10px 18px; /* Slightly smaller padding */
+    border-radius: 5px; /* Less rounded */
+    transition: background-color 0.3s ease; /* Removed box-shadow from transition */
+    box-shadow: none; /* Removed box-shadow */
 }
 
 .btn-nav-whatsapp:hover {
     background-color: #1da851 !important; /* Darker Green */
-    box-shadow: 0 6px 12px rgba(37,211,102,0.6); /* More pronounced shadow on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow on hover */
 }
 
 .btn-nav-whatsapp i {
     margin-right: 8px; /* More space for icon */
     font-size: 1.1em; /* Slightly larger icon */
+}
+
+.btn-nav-icon {
+    color: var(--white) !important;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.2em;
+}
+
+.btn-nav-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .burger {
@@ -246,16 +258,35 @@ nav {
     body {
         font-size: 17px; /* Base font size for desktop */
     }
+
+    /* Increase hero text size on PC */
+    .hero-title {
+        font-size: 5.5em; /* Further increased */
+    }
+
+    .hero-subtitle {
+        font-size: 6.5em; /* Further increased */
+    }
+
+    .hero-description {
+        font-size: 1.6em; /* Further increased */
+    }
+
+    /* Make hero section taller on PC */
+    #hero-new {
+        min-height: 120vh; /* Increased from 100vh */
+    }
 }
 
 /* Hero Section (New Design for Index) */
 #hero-new {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
-    background: url('../images/index/hero_bg_index.jpg') no-repeat center center/cover;
-    display: flex;
-    flex-direction: column; /* Stack content and stats bar vertically */
+    min-height: 100vh; /* Full viewport height */
+    background: url('../images/index/taller principal .jpg') no-repeat center center/cover;
+    display: flex; /* Añadir */
+    flex-direction: column; /* Añadir */
+    /* justify-content: space-between;  Eliminado */
     color: var(--white);
     overflow: hidden; /* Ensure overlay doesn't spill */
 }
@@ -266,7 +297,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(15, 23, 42, 0.8); /* Dark blue overlay (Slate 900 with opacity) */
+    background-color: rgba(15, 23, 42, 0.6); /* Dark blue overlay (Slate 900 with reduced opacity) */
     z-index: 1;
 }
 
@@ -281,6 +312,7 @@ nav {
     flex-direction: column;
     justify-content: center; /* Vertically center content within its space */
     text-align: left;
+    /* Eliminado margin-bottom: 120px; */
 }
 
 .hero-title {
@@ -335,7 +367,7 @@ nav {
 }
 
 .hero-btn-primary:hover {
-    background-color: #e06a14; /* Slightly darker orange */
+    background-color: #e67e00; /* Slightly darker orange */
 }
 
 .hero-btn-secondary {
@@ -352,11 +384,14 @@ nav {
 
 /* Hero Stats Bar */
 .hero-stats-bar {
-    position: static; /* Changed from absolute to static */
+    position: static; /* Revertido a static */
+    bottom: auto; /* Eliminado */
+    left: auto; /* Eliminado */
+    margin-top: auto; /* Añadido para empujarlo hacia abajo */
     width: 100%;
     background-color: #0F172A; /* Deep blue (Slate 900) */
     color: var(--white);
-    padding: 40px 0; /* Increased padding for more height */
+    padding: 60px 0; /* Increased padding for more height */
     z-index: 2;
 }
 
@@ -432,6 +467,25 @@ nav {
     font-size: 2.2em;
 }
 
+/* Estilos para el nuevo contenedor del título y logo en la sección intro */
+.intro-header-with-logo {
+    display: flex;
+    flex-direction: column; /* Stack logo and text vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically (if container has height) */
+    gap: 10px; /* Reduced gap for vertical stacking */
+    margin-bottom: 20px; /* Mantener el espacio con el párrafo siguiente */
+}
+
+.intro-header-with-logo h3 {
+    margin-bottom: 0; /* Eliminar el margen inferior del h3 dentro de este contenedor */
+}
+
+.intro-logo {
+    height: 60px; /* Tamaño del logo en la sección intro */
+    width: auto;
+}
+
 #intro-new .intro-short {
     font-size: 1.1em;
     color: #334155; /* Slate 700 */
@@ -473,7 +527,7 @@ nav {
 /* Featured Services Section (New Design) */
 #featured-services-new {
     padding: 60px 0;
-    background-color: var(--white);
+    background-color: var(--dark-gray); /* Cambiado a gris oscuro */
 }
 
 #featured-services-new .section-header {
@@ -494,13 +548,13 @@ nav {
 
 #featured-services-new .section-header h2 {
     font-size: 2.2em;
-    color: var(--dark-gray);
+    color: var(--white); /* Cambiado a blanco */
     margin-bottom: 10px;
 }
 
 #featured-services-new .section-header p {
     font-size: 1.1em;
-    color: #64748B; /* Slate 500 */
+    color: var(--white); /* Cambiado a blanco */
     max-width: 600px;
     margin: 0 auto;
 }
@@ -580,7 +634,7 @@ nav {
 }
 
 .btn-orange:hover {
-    background-color: #e06a14; /* Slightly darker orange */
+    background-color: #e67e00; /* Slightly darker orange */
 }
 
 /* Remove old featured services styles */
@@ -1964,6 +2018,9 @@ footer .contact-info p {
     }
     
     /* Burger Animation */
+}
+
+
     nav.nav-active .burger .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
     }

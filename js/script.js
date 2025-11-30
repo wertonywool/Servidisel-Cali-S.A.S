@@ -86,6 +86,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const formData = new FormData(appointmentForm);
             formData.append('urgency', selectedUrgency); // Add selected urgency
 
+            const feedbackOverlay = document.querySelector('.form-feedback-overlay');
+            const loadingSpinner = document.querySelector('.loading-spinner');
+            const successMessage = document.querySelector('.success-message');
+            const errorMessage = document.querySelector('.error-message');
+            const closeButtons = document.querySelectorAll('.close-feedback');
+
+            // Show loading spinner
+            feedbackOverlay.style.display = 'flex';
+            loadingSpinner.style.display = 'block';
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+
             // Send data to Formspree
             fetch('https://formspree.io/f/xpwbkovb', {
                 method: 'POST',
@@ -95,42 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             })
             .then(response => {
-                if (formMessage) {
-                    if (response.ok) {
-                        formMessage.textContent = '¡Gracias! Tu solicitud de cita ha sido enviada. Nos pondremos en contacto contigo pronto.';
-                        formMessage.classList.remove('error');
-                        formMessage.classList.add('success');
-                        appointmentForm.reset(); // Clear the form
-                        urgencyButtons.forEach(btn => btn.classList.remove('active'));
-                        if(urgencyButtons.length > 0) urgencyButtons[0].classList.add('active'); // Reset to Normal
-                        selectedUrgency = 'normal';
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                formMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
-                            } else {
-                                formMessage.textContent = '¡Oops! Hubo un problema al enviar tu solicitud.';
-                            }
-                            formMessage.classList.remove('success');
-                            formMessage.classList.add('error');
-                        })
-                    }
+                loadingSpinner.style.display = 'none';
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    appointmentForm.reset();
+                    urgencyButtons.forEach(btn => btn.classList.remove('active'));
+                    if(urgencyButtons.length > 0) urgencyButtons[0].classList.add('active');
+                    selectedUrgency = 'normal';
+                } else {
+                    errorMessage.style.display = 'block';
                 }
             })
             .catch(error => {
-                if (formMessage) {
-                    formMessage.textContent = '¡Oops! Hubo un problema de conexión al enviar tu solicitud.';
-                    formMessage.classList.remove('success');
-                    formMessage.classList.add('error');
-                }
-            })
-            .finally(() => {
-                if (formMessage) {
-                    formMessage.style.display = 'block';
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 6000);
-                }
+                loadingSpinner.style.display = 'none';
+                errorMessage.style.display = 'block';
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    feedbackOverlay.style.display = 'none';
+                });
             });
         });
     }

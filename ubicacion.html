@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ubicación de Servidiesel en Cali. Encuéntranos en Cra 7 33a-04.">
+    <meta name="keywords" content="ubicación, dirección, mapa, Servidiesel, Cali">
+    <title>Servidiesel - Ubicación</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .map-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .address-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .address-container h2 {
+            margin-bottom: 20px;
+        }
+        .btn-primary-dark {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Ensure no underline */
+            display: inline-block; /* Make it behave like a block element for padding */
+            margin-top: 20px;
+        }
+
+        .btn-primary-dark:hover {
+            background-color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="images/Logos/Logo nuevo 2.png" alt="Servidiesel Logo" class="header-logo"></a>
+            </div>
+            <div class="main-nav-buttons">
+                <a href="agendar_cita.html" class="btn-nav-cita">Agendar Cita</a>
+                <a href="https://wa.me/573008613375?text=Hola,%20me%20interesa%20el%20servicio%20de%20Servidiesel." target="_blank" class="btn-nav-whatsapp"><i class="fab fa-whatsapp"></i></a>
+                <a href="ubicacion.html" class="btn-nav-icon"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="address-container">
+            <h2>Nuestra Ubicación</h2>
+            <p>Cra 7 33a-04, Cali, Valle del Cauca, Colombia</p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Cra+7+33a-04,+Cali,+Valle+del+Cauca,+Colombia" target="_blank" class="btn btn-primary-dark">Cómo Llegar con Google Maps</a>
+        </section>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.646368531835!2d-76.52053898524189!3d3.43633299751398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a665169e7377%3A0x87594a787345c37c!2sCra.+7+%2333a-4%2C+Cali%2C+Valle+del+Cauca%2C+Colombia!5e0!3m2!1ses!2ses!4v1678886400000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Servidiesel. Todos los derechos reservados.</p>
+            <div class="contact-info">
+                <p>Teléfono: +57 3008613375</p>
+                <p>Email: Servidieselcalisas@gmail.com</p>
+                <p>Dirección: Cra 7 33a-04</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=100069371150964" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/servidieselcali" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@servidora.cali.sa?_r=1&_t=ZS-91p1rtSsmQC" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/5730086013375" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573008613375?text=Hola%20servidiesel%20cali%20sas%20estoy%20interesado%20en%20usar%20sus%20servicios" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
