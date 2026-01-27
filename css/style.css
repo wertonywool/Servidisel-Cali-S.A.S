@@ -163,6 +163,11 @@ nav {
 }
 
 /* Navigation Button Styles */
+.btn-nav-cita-mobile-icon,
+.btn-nav-whatsapp-mobile-icon {
+    display: none;
+}
+
 .btn-nav-cita {
     background-color: var(--primary-orange);
     color: var(--white); /* Removed !important */
@@ -1975,8 +1980,33 @@ footer .contact-info p {
     
     /* Adjust button size for mobile */
     .btn-nav-cita, .btn-nav-whatsapp {
-        padding: 8px 12px;
-        font-size: 0.9em;
+        padding: 12px; /* Match btn-nav-icon padding */
+        font-size: 1.2em; /* Match btn-nav-icon font-size */
+    }
+
+    .burger {
+        display: block; /* Make burger visible on mobile */
+        margin-left: auto; /* Push burger to the right */
+    }
+
+    /* Hide desktop text buttons on mobile */
+    .btn-nav-cita-desktop-text,
+    .btn-nav-whatsapp-desktop-text {
+        display: none;
+    }
+
+    /* Ensure mobile icons are displayed on mobile */
+    .btn-nav-cita-mobile-icon,
+    .btn-nav-whatsapp-mobile-icon {
+        display: flex; /* Use flex to center icon if needed, or block */
+    }
+
+    /* Adjust main-nav-buttons for mobile icons */
+    .main-nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Adjust gap between icons */
+        margin-left: auto; /* Keep pushing to the right */
     }
 
     .nav-links {
