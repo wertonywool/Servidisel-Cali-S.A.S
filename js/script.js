@@ -7,21 +7,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Corrected Mobile Navigation Logic ---
     const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav'); // Select the <nav> tag
-    const navLinks = document.querySelectorAll('.nav-links li');
+    const mobileNavLinks = document.querySelector('.nav-links'); // Select the <ul> with class nav-links
+    const navLinksItems = document.querySelectorAll('.nav-links li'); // Individual <li> items
 
-    if (burger && nav) {
+    if (burger && mobileNavLinks) {
         burger.addEventListener('click', () => {
-            // Toggle a single class on the main <nav> element
-            nav.classList.toggle('nav-active');
+            // Toggle nav-active class on the mobileNavLinks (the <ul> element)
+            mobileNavLinks.classList.toggle('nav-active');
+            // Toggle 'toggle' class on the burger for its animation
+            burger.classList.toggle('toggle');
 
             // Animate links based on state
-            if (nav.classList.contains('nav-active')) {
-                navLinks.forEach((link, index) => {
+            if (mobileNavLinks.classList.contains('nav-active')) {
+                navLinksItems.forEach((link, index) => {
                     link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
                 });
             } else { // Reset animation when closing
-                navLinks.forEach(link => {
+                navLinksItems.forEach(link => {
                     link.style.animation = '';
                 });
             }
@@ -29,13 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close nav when a link is clicked (for mobile)
-    if (navLinks.length > 0) {
-        navLinks.forEach(link => {
+    if (navLinksItems.length > 0) {
+        navLinksItems.forEach(link => {
             link.addEventListener('click', () => {
-                if (nav && nav.classList.contains('nav-active')) {
-                    nav.classList.remove('nav-active');
+                if (mobileNavLinks && mobileNavLinks.classList.contains('nav-active')) {
+                    mobileNavLinks.classList.remove('nav-active');
+                    burger.classList.remove('toggle'); // Also remove burger animation class
                     // Reset animation for all links
-                    navLinks.forEach(linkItem => {
+                    navLinksItems.forEach(linkItem => {
                         linkItem.style.animation = '';
                     });
                 }
@@ -131,35 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Lightbox functionality for Gallery ---
-    const galleryItems = document.querySelectorAll('.gallery-item img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const closeBtn = document.querySelector('.close-btn');
-
-    if (galleryItems.length > 0 && lightbox) {
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                lightbox.style.display = 'flex';
-                lightboxImg.src = item.src;
-                lightboxCaption.innerHTML = item.alt;
-            });
-        });
-
-        if(closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                lightbox.style.display = 'none';
-            });
-        }
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
-    }
-
     // --- Interactive Services Tabs ---
     const serviceTabs = document.querySelectorAll('.service-tab-card');
     const serviceContentPanels = document.querySelectorAll('.service-content-panel');
@@ -184,65 +158,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Gallery Filtering (New) ---
-    const galleryFilterButtons = document.querySelectorAll('.filter-buttons .filter-btn');
-    const galleryItemsAll = document.querySelectorAll('.gallery-item');
-    const galleryContentSection = document.getElementById('gallery-content');
+    // --- Gallery Filtering ---
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-grid .gallery-item');
+    const galleryContent = document.getElementById('gallery-content');
 
-    // Function to update active filter and apply styles
-    const updateGalleryFilter = (filter) => {
-        // Remove active class from all buttons and pulsing animation
-        galleryFilterButtons.forEach(btn => {
-            btn.classList.remove('active');
-            btn.classList.remove('pulsing');
-        });
-
-        // Remove all frame color classes from gallery items
-        galleryItemsAll.forEach(item => {
-            item.classList.remove('frame-trabajos', 'frame-taller', 'frame-personal');
-        });
-
-        // Remove all background classes from gallery content section
-        galleryContentSection.classList.remove('gallery-content-bg-trabajos', 'gallery-content-bg-taller', 'gallery-content-bg-personal');
-
-        // Apply active class to the selected button
-        const activeButton = document.querySelector(`.filter-buttons .filter-btn[data-filter="${filter}"]`);
-        if (activeButton) {
-            activeButton.classList.add('active');
-            activeButton.classList.add('pulsing'); // Add pulsing animation
-        }
-
-        // Apply frame color and background based on filter
-        galleryItemsAll.forEach(item => {
-            // First, remove all existing frame classes from this item
-            item.classList.remove('frame-trabajos', 'frame-taller', 'frame-personal');
-            // Then, if the item is visible, apply the new frame class
-            if (item.style.display !== 'none') {
-                item.classList.add(`frame-${filter}`);
-            }
-        });
-        galleryContentSection.classList.add(`gallery-content-bg-${filter}`);
-
-        // Show/hide gallery items
-        galleryItemsAll.forEach(item => {
-            if (filter === 'all' || item.dataset.category === filter) {
-                item.style.display = 'block';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    };
-
-    if (galleryFilterButtons.length > 0) {
-        // Set initial filter to 'trabajos' (first category)
-        updateGalleryFilter('trabajos');
-
-        galleryFilterButtons.forEach(button => {
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to the clicked button
+                button.classList.add('active');
+
                 const filter = button.dataset.filter;
-                updateGalleryFilter(filter);
+
+                // Update background and text color based on filter
+                galleryContent.classList.remove('gallery-content-bg-trabajos', 'gallery-content-bg-taller', 'gallery-content-bg-personal', 'gallery-content-bg-videos');
+                galleryContent.classList.add(`gallery-content-bg-${filter}`);
+
+                galleryItems.forEach(item => {
+                    const itemCategory = item.dataset.category;
+                    // Remove all frame classes
+                    item.classList.remove('frame-trabajos', 'frame-taller', 'frame-personal', 'frame-videos');
+                    // Add frame class based on current filter
+                    item.classList.add(`frame-${filter}`);
+
+                    if (filter === 'all' || itemCategory === filter) {
+                        item.style.display = 'flex'; // Use flex for video items to center content
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
             });
         });
+
+        // Initial filter application (to show 'videos' by default as per current HTML)
+        // Find the 'videos' button and simulate a click
+        const initialFilterButton = document.querySelector('.filter-btn[data-filter="videos"]');
+        if (initialFilterButton) {
+            initialFilterButton.click();
+        }
     }
 
     // --- Animation on Scroll (Intersection Observer) ---
@@ -272,4 +228,60 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(element => {
         observer.observe(element);
     });
+
+    // --- Lightbox Functionality for Videos ---
+    let lightbox = document.getElementById('lightbox');
+    let lightboxVideo = document.getElementById('lightbox-video'); // Changed from lightboxImg
+    let lightboxCaption = document.getElementById('lightbox-caption');
+    let closeBtn = document.querySelector('.close-btn');
+    const videoItems = document.querySelectorAll('.video-thumbnail-wrapper'); // Select video wrappers
+
+    if (videoItems.length > 0) {
+        videoItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const videoId = this.dataset.videoId;
+                const videoTitle = this.nextElementSibling ? this.nextElementSibling.textContent : ''; // Get title from sibling <p>
+
+                lightboxVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`; // Autoplay and remove related videos
+                lightboxCaption.innerHTML = videoTitle;
+                lightbox.style.display = 'flex';
+            });
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            lightbox.style.display = 'none';
+            lightboxVideo.src = ''; // Stop video playback when closing
+        });
+    }
+
+    // Close lightbox when clicking outside the video
+    if (lightbox) {
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightboxVideo.src = ''; // Stop video playback when closing
+            }
+        });
+    }
+
+    // Close lightbox with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape" && lightbox && lightbox.style.display === 'flex') {
+            lightbox.style.display = 'none';
+            lightboxVideo.src = ''; // Stop video playback when closing
+        }
+    });
+
+    // --- Initial active state for interactive services ---
+    const firstServiceTab = document.querySelector('.service-tab-card');
+    if (firstServiceTab) {
+        firstServiceTab.classList.add('active');
+        const firstPanelId = firstServiceTab.dataset.tab;
+        const firstPanel = document.getElementById(firstPanelId);
+        if (firstPanel) {
+            firstPanel.classList.add('active');
+        }
+    }
 });

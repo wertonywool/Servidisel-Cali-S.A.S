@@ -261,20 +261,26 @@ nav {
 
     /* Increase hero text size on PC */
     .hero-title {
-        font-size: 5.5em; /* Further increased */
+        font-size: 6.5em; /* Even larger */
     }
 
     .hero-subtitle {
-        font-size: 6.5em; /* Further increased */
+        font-size: 7.5em; /* Even larger */
     }
 
     .hero-description {
-        font-size: 1.6em; /* Further increased */
+        font-size: 1.8em; /* Even larger */
     }
 
     /* Make hero section taller on PC */
     #hero-new {
-        min-height: 120vh; /* Increased from 100vh */
+        min-height: 150vh; /* Increased from 120vh */
+    }
+
+    /* Increase hero button size on PC */
+    .hero-btn-primary, .hero-btn-secondary {
+        padding: 20px 40px; /* Larger padding */
+        font-size: 1.3em; /* Larger font size */
     }
 }
 
@@ -963,7 +969,7 @@ nav {
 
 .process-card {
     background-color: rgba(255, 255, 255, 0.1);
-    padding: 25px;
+    padding: 30px; /* Increased padding */
     border-radius: 8px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -980,18 +986,19 @@ nav {
     align-items: center;
     gap: 15px;
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: 2em; /* Keep original font-size for header */
     color: var(--primary-orange);
 }
 
 .process-step-number {
     font-weight: 700;
+    font-size: 1.25em; /* Increased relative to header font-size */
 }
 
 .process-card h3 {
     color: var(--white);
     margin-bottom: 10px;
-    font-size: 1.1em;
+    font-size: 1.3em; /* Increased font-size */
 }
 
 .process-card p {
@@ -1991,6 +1998,33 @@ footer .contact-info p {
 
     .nav-links li {
         opacity: 0;
+    }
+
+    /* Services Section Responsive Adjustments */
+    .service-content-panel {
+        grid-template-columns: 1fr; /* Stack image and text vertically */
+        gap: 20px; /* Adjust gap for mobile */
+        padding: 20px; /* Adjust padding for mobile */
+    }
+
+    .service-content-panel .content-image {
+        height: 200px; /* Give the image container a fixed height on mobile */
+    }
+
+    .service-content-panel .content-image img {
+        height: 100%; /* Ensure image fills the new fixed height */
+        width: 100%; /* Ensure image fills the width */
+        object-fit: cover; /* Maintain aspect ratio and cover container */
+    }
+}
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+        display: flex; /* Make it visible */
+    }
+
+    .nav-links li {
+        opacity: 0;
         width: 100%;
         text-align: center;
     }
@@ -1998,216 +2032,186 @@ footer .contact-info p {
     .nav-links li a {
         padding: 15px 0;
         width: 100%;
-        color: var(--white);
     }
 
     .burger {
         display: block; /* Show burger on mobile */
-        margin-left: auto; /* Push burger to the far right */
+        margin-left: auto; /* Push to the right */
     }
 
-    /* This class is toggled by JS on the <nav> element */
-    nav.nav-active .nav-links {
-        display: flex; /* Make slide-out menu visible */
-        transform: translateX(0%);
-    }
-
-    nav.nav-active .nav-links li {
-        opacity: 1;
-        animation: navLinkFade 0.5s ease forwards;
-    }
-    
-    /* Burger Animation */
-}
-
-
-    nav.nav-active .burger .line1 {
+    .toggle .line1 {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
-    nav.nav-active .burger .line2 {
+    .toggle .line2 {
         opacity: 0;
     }
-    nav.nav-active .burger .line3 {
+    .toggle .line3 {
         transform: rotate(45deg) translate(-5px, -6px);
     }
 
     /* Hero Section */
     #hero-new {
-        height: auto; /* Adjust height for mobile */
-        min-height: 80vh;
+        min-height: 100vh;
     }
+
     .hero-content-new {
-        max-width: 90%;
+        max-width: 100%;
+        padding: 0 20px;
         text-align: center;
-        padding-left: 0;
-        justify-content: center;
         align-items: center;
     }
-    .hero-title { font-size: 2em; }
-    .hero-subtitle { font-size: 2.5em; }
-    .hero-description { font-size: 1em; }
-    
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-subtitle {
+        font-size: 3em;
+    }
+
+    .hero-description {
+        font-size: 1.1em;
+    }
+
     .hero-buttons {
         flex-direction: column;
-        align-items: center;
-    }
-    .hero-btn-primary, .hero-btn-secondary {
-        width: 90%;
+        width: 100%;
         max-width: 300px;
-        justify-content: center;
     }
-    .hero-stats-bar {
-        padding: 20px 0;
-    }
+
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .stat-number { font-size: 2em; }
-    .stat-label { font-size: 0.9em; }
-
-    /* Form Styles */
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-        margin-bottom: 0;
-    }
-    .form-row .form-group {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .form-row.three-cols .form-group {
-        flex: 1 1 100%;
-    }
-    .urgency-buttons {
-        flex-direction: column;
+        gap: 30px;
     }
 
-    /* Ensure form inputs are usable */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="date"],
-    select,
-    textarea {
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 16px; /* Prevents iOS zoom-in */
+    .stat-number {
+        font-size: 2.2em;
     }
 
-    /* Service Content Panel */
+    /* Other Sections */
+    .service-cards-new, .testimonial-cards, .process-grid, .values-grid, .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-tabs {
+        grid-template-columns: 1fr;
+    }
+
     .service-content-panel {
         grid-template-columns: 1fr;
     }
-    
-    /* About Us Story */
-    #our-story ul li {
-        flex: 1 1 100%;
+
+    .service-content-panel .content-image {
+        display: none; /* Optional: hide image on mobile for brevity */
+    }
+
+    .workshop-details {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .employee-card {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
-/* Further adjustments for very small screens */
-@media screen and (max-width: 480px) {
-    .stats-grid {
-        grid-template-columns: 1fr; /* Stack stats fully */
-    }
-    .workshop-images img {
-        max-width: 100%;
-    }
-}
-
-/* --- New Why Choose Us Section for Servicios Page --- */
-#why-choose-us-servicios {
+/* --- Opiniones de Clientes y Formulario --- */
+#opiniones-clientes {
     padding: 60px 0;
     background-color: #F1F5F9; /* Light Gray (Slate 100) */
 }
 
-#why-choose-us-servicios .section-header {
+#opiniones-clientes .section-header {
     text-align: center;
+    margin-bottom: 40px;
 }
 
-#why-choose-us-servicios .section-header h2 {
+#opiniones-clientes .section-header h2 {
     font-size: 2.2em;
     color: var(--dark-gray);
-    margin-bottom: 10px;
 }
 
-#why-choose-us-servicios .section-header p {
+#opiniones-clientes .section-header p {
     font-size: 1.1em;
     color: #64748B; /* Slate 500 */
     max-width: 600px;
-    margin: 0 auto 40px auto;
+    margin: 0 auto;
 }
 
-.advantages-grid-servicios {
+.opiniones-layout {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: flex-start;
 }
 
-.advantage-card-servicios {
+.opiniones-form-container, .opiniones-display-container {
     background-color: var(--white);
-    border-radius: 12px;
     padding: 30px;
-    text-align: center;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
-.advantage-card-servicios:hover {
-    transform: translateY(-5px);
-}
-
-.advantage-icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-
-.advantage-icon-wrapper.orange-bg {
-    background-color: var(--primary-orange);
-}
-
-.advantage-icon-wrapper.black-bg {
-    background-color: var(--black);
-}
-
-.advantage-icon-wrapper.dark-gray-bg {
-    background-color: var(--dark-gray);
-}
-
-.advantage-icon-wrapper i {
-    color: var(--white);
-    font-size: 1.8em;
-}
-
-.advantage-card-servicios h3 {
-    font-weight: bold;
-    font-size: 1.25em;
+.opiniones-form-container h3, .opiniones-display-container h3 {
+    font-size: 1.5em;
     color: var(--dark-gray);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.advantage-card-servicios p {
-    color: #64748B; /* Slate 500 */
-    line-height: 1.6;
-    font-size: 0.95em;
+.opinion-form .form-group {
+    margin-bottom: 20px;
 }
 
-/* Responsive grid for the new section */
-@media (max-width: 1024px) {
-    .advantages-grid-servicios {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.opinion-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--dark-gray);
 }
 
-@media (max-width: 768px) {
-    .advantages-grid-servicios {
+.opinion-form input[type="text"],
+.opinion-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opinion-form input[type="text"]:focus,
+.opinion-form textarea:focus {
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.3);
+    outline: none;
+}
+
+.opinion-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.opinion-form .btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.opiniones-display-container .testimonial-card {
+    box-shadow: none; /* Remove double shadow */
+    border: 1px solid #e2e8f0; /* Add a light border instead */
+}
+
+/* Responsive for a single column layout on mobile */
+@media (max-width: 992px) {
+    .opiniones-layout {
         grid-template-columns: 1fr;
     }
 }
